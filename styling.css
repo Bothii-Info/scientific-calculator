@@ -8,7 +8,7 @@
 }
 
 #display {
-    width: 90%;
+    width: 98%;
     padding: 10px;
     text-align: left;
     font-size: 20px;
@@ -18,7 +18,7 @@
 }
 
 .actionButtons button {
-    width: 25%;
+    width: 19%;
     padding: 10px;
     font-size: 18px;
     border: 1px solid black;
@@ -27,8 +27,9 @@
 }
 
 .sciButtons button {
-    width: 25%;
-    padding: 10px;
+    width: 24%;
+    margin: 3px;
+    padding: 12px;
     font-size: 18px;
     border: 1px solid black;
     border-radius: 5px;
@@ -42,6 +43,7 @@
 }
 
 .number {
+    margin: 3px;
     width: 19%;
     padding: 25px;
     font-size: 18px;
@@ -52,6 +54,7 @@
 
 .operator {
     width: 19%;
+    margin: 3px;
     padding: 25px;
     font-size: 18px;
     border: 1px solid black;
@@ -62,8 +65,20 @@
 .functional {
     width: 19%;
     padding: 25px;
+    margin: 3px;
     font-size: 18px;
     border: 1px solid black;
     border-radius: 5px;
     cursor: pointer;
 }
+
+#ansbutton{
+    background-color: orange;
+}
+#delbutton{
+    background-color: rgb(208, 80, 6);
+}
+#acbutton{
+    background-color: yellow;
+}
+

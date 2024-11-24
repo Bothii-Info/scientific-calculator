@@ -1,11 +1,152 @@
+let prevAns = 0
 
-function myEval(input){
 
+function myEval(expression) {
+
+    let terms = splitString(expression)
+    let postFix = bodmas(terms)
+    let awnser = evaluateExpression(postFix)
+    prevAns = awnser
+    return awnser
 }
 
+function isnum(n) {
+    nums = '0987654321';
+    nums.forEach(element => {
+        if (n == element)
+            return true;
+    });
+    return false;
+}
+
+
+function splitString(equ) {
+    const tokens = [];
+    const regex = /|[+\-*/^()×÷√]|sin|cos|tan|log|abs|ans|\d+(\.\d+)?/g;
+    let match;
+    let lastToken = null;
+
+    while ((match = regex.exec(equ)) !== null) {
+        let token = match[0];
+
+        // Handle unary minus
+        if (token === "-" && (lastToken === null || /[+\-*/^()×÷]/.test(lastToken))) {
+            match = regex.exec(equ); // Get the next token
+            if (match) {
+                token = `-${match[0]}`; 
+            } else {
+                throw new Error("Invalid syntax: Standalone '-'");
+            }
+        }
+
+        tokens.push(token);
+        lastToken = token;
+    }
+    console.log(tokens)
+    return tokens;
+}
+
+function bodmas(terms) {
+    const precedence = { '+': 1, '-': 1, '*': 2, '×': 2, '÷': 3, '/': 3, '^': 4, '√': 4, 'sin': 5, 'cos': 5, 'tan': 5, 'log': 5, 'logbase': 5, 'abs': 5 };
+    const stack = [];
+    const values = [];
+
+
+    terms.forEach(
+        term => {
+            console.log(term)
+            if (!isNaN(term)) {
+                values.push(term);
+            } else if (term === '(') {
+                stack.push(term);
+            } else if (term === ')') {
+
+                while (stack.length && stack[stack.length - 1] !== '(') {// process the subexpression untill the opening bracket is found again
+                    values.push(stack.pop()); //add the operators
+                }
+
+                stack.pop();
+            } else {
+
+                while (stack.length && precedence[stack[stack.length - 1]] >= precedence[term]) {
+                    values.push(stack.pop());// Add highest precedences
+                }
+
+                stack.push(term);// add items if they have a higher precedence
+            }
+        });
+
+    while (stack.length) {// remainder of operators go here
+        values.push(stack.pop());
+    }
+    return values;
+}
+
+function evaluateExpression(expression) {
+    let calculations = []
+    let a = ''
+    let b = ''
+
+    expression.forEach(
+        term => {
+            console.log(term)
+            if (term == 'sin' || term == 'cos' || term == 'tan' || term == "√" || term == "abs") {
+                a = calculations.pop()
+                b = term === 'logbase' ? calculations.pop() : null;
+            } else if (isNaN(term)) {
+                b = calculations.pop()
+                a = calculations.pop()
+            } else {
+                calculations.push(parseFloat(term))
+            }
+            switch (term) {
+                case '+':
+                    calculations.push(a + b)
+                    break;
+                case '-':
+                    calculations.push(a - b)
+                    break;
+                case '×':
+                    calculations.push(a * b)
+                    break;
+                case '÷':
+                    calculations.push(a / b)
+                    break;
+                case '^':
+                    calculations.push(Math.pow(a, b))
+                    break;
+                case "√":
+                    calculations.push(Math.sqrt(a))
+                    break;
+                case 'sin':
+                    calculations.push(Math.sin(a * (Math.PI / 180)))
+                    break;
+                case 'cos':
+                    calculations.push(Math.cos(a*(Math.PI/180)))
+                    break;
+                case 'tan':
+                    calculations.push(Math.tan(a * (Math.PI / 180)))
+                    break;
+                case 'abs':
+                    calculations.push(Math.abs(a))
+                    break;
+            }
+
+        }
+
+    )
+
+    return calculations.pop()
+}
+
+
+
+
+
+// REMEMBER to pass only integer items into this function or you will break it and then I will break you.
 function toRom(num) {
     let res = '';
-    
+
     while (num >= 1000) {
         res += 'M'
         num -= 1000
@@ -34,7 +175,7 @@ function toRom(num) {
         res += 'IV';
         return res;
     }
-    if (num >=5) {
+    if (num >= 5) {
         res += 'V'
         num -= 5
     }
@@ -45,6 +186,7 @@ function toRom(num) {
     return res;
 }
 
+
 const display = document.getElementById('display');
 const buttons = document.querySelectorAll('button');
 
@@ -54,24 +196,28 @@ buttons.forEach(button => {
             display.value = '';
         } else if (button.textContent === '=') {
             try {
-                display.value = eval(display.value);
+
+                display.value = myEval(display.value);
             } catch (error) {
                 display.value = 'Error';
+                console.log(error);
             }
         } else if (button.textContent === 'DEL') {
-            display.value = display.value.slice(0, display.value.length-1)
+            display.value = display.value.slice(0, display.value.length - 1)
         } else if (button.textContent === '√') {
-            display.value = Math.sqrt(display.value);
+            display.value += '√(';
         } else if (button.textContent === '^') {
-            display.value += '^';
+            display.value += '^(';
         } else if (button.textContent === 'sin') {
-            display.value = Math.sin(display.value * Math.PI / 180);
+            display.value += 'sin('
         } else if (button.textContent === 'cos') {
-            display.value = Math.cos(display.value * Math.PI / 180);
+            display.value += 'cos('
         } else if (button.textContent === 'tan') {
-            display.value = Math.tan(display.value * Math.PI / 180);
+            display.value += 'tan('
         } else if (button.textContent === 'abs') {
-            display.value = Math.abs(display.value);
+            display.value += 'abs('
+        } else if (button.textContent === 'Ans') {
+            display.value += '(' + prevAns + ')';
         } else if (button.textContent === 'Ⅰ') {
             display.value = toRom(parseInt(display.value))
         } else {
