@@ -22,7 +22,7 @@ function isnum(n) {
 
 function splitString(equ) {
     const tokens = [];
-    const regex = /|[+\-*/^()×÷√]|sin|cos|tan|log|abs|ans|\d+(\.\d+)?/g;
+    const regex = /[+\-*/^()×÷√]|sin|cos|tan|log|abs|ans|\d+(\.\d+)?/g;
     let match;
     let lastToken = null;
 
@@ -33,7 +33,7 @@ function splitString(equ) {
         if (token === "-" && (lastToken === null || /[+\-*/^()×÷]/.test(lastToken))) {
             match = regex.exec(equ); // Get the next token
             if (match) {
-                token = `-${match[0]}`; 
+                token = `-${match[0]}`;
             } else {
                 throw new Error("Invalid syntax: Standalone '-'");
             }
@@ -122,7 +122,7 @@ function evaluateExpression(expression) {
                     calculations.push(Math.sin(a * (Math.PI / 180)))
                     break;
                 case 'cos':
-                    calculations.push(Math.cos(a*(Math.PI/180)))
+                    calculations.push(Math.cos(a * (Math.PI / 180)))
                     break;
                 case 'tan':
                     calculations.push(Math.tan(a * (Math.PI / 180)))
@@ -138,10 +138,6 @@ function evaluateExpression(expression) {
 
     return calculations.pop()
 }
-
-
-
-
 
 // REMEMBER to pass only integer items into this function or you will break it and then I will break you.
 function toRom(num) {
