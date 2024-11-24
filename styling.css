@@ -1,5 +1,5 @@
 .calculator {
-    width: 900px;
+    width: 1000px;
     margin: 0 auto;
     border: 1px solid black;
     border-radius: 5px;
@@ -35,9 +35,33 @@
     cursor: pointer;
 }
 
-.buttons button {
-    width: 25%;
-    padding: 10px;
+.bottomButtons {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.number {
+    width: 19%;
+    padding: 25px;
+    font-size: 18px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.operator {
+    width: 19%;
+    padding: 25px;
+    font-size: 18px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.functional {
+    width: 19%;
+    padding: 25px;
     font-size: 18px;
     border: 1px solid black;
     border-radius: 5px;
