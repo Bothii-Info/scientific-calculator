@@ -1,0 +1,45 @@
+.calculator {
+    width: 900px;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: grey;
+}
+
+#display {
+    width: 90%;
+    padding: 10px;
+    text-align: left;
+    font-size: 20px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    color: black;
+}
+
+.actionButtons button {
+    width: 25%;
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sciButtons button {
+    width: 25%;
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons button {
+    width: 25%;
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}

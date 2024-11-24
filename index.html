@@ -1,25 +1,52 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>This is my first html app lol</title>
+    <title>Scientific Calculator</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="styling.css">
 </head>
 
 <body>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <h1>Wat maak hierdie ding</h1>
-    <script src="" async defer></script>
+    <div class="calculator">
+        <input type="text" id="display" disabled>
+        <div class="actionButtons">
+            <button class="operator">&#8592;</button>
+            <button class="operator">&#8594;</button>
+            <button class="operator">DEL</button>
+        </div>
+        <div class="sciButtons">
+            <button class="operator">√</button>
+            <button class="operator">^</button>
+            <button class="operator">sin</button>
+        </div>
+        <div class="sciButtons">
+            <button class="operator">cos</button>
+            <button class="operator">tan</button>
+            <button class="operator">abs</button>
+        </div>
+        <div class="buttons">
+            <button class="number">7</button>
+            <button class="number">8</button>
+            <button class="number">9</button>
+            <button class="functional">AC</button>
+            <button class="number">4</button>
+            <button class="number">5</button>
+            <button class="number">6</button>
+            <button class="operator">+</button>
+            <button class="number">1</button>
+            <button class="number">2</button>
+            <button class="number">3</button>
+            <button class="operator">-</button>
+            <button class="number">0</button>
+            <button class="number">.</button>
+            <button class="operator">=</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
