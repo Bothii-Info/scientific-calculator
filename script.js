@@ -29,7 +29,7 @@ function splitString(equ) {
         let token = match[0];
 
         // If a minus is standing on its own, ignore some of these symbols
-        if (token === "-" && (lastToken === null || /[+-*(^×÷]/.test(lastToken))) {
+        if (token === "-" && (lastToken === null || /[+\-*/(×÷]/.test(lastToken))) {
             match = regex.exec(equ); // Get the next token
             if (match) {
                 token = `-${match[0]}`;
