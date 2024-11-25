@@ -11,53 +11,54 @@
 </head>
 
 <body>
-    <div class="calculator">
+    <main class="calculator">
         <input type="text" id="display" disabled>
-        <div class="sciButtons">
-            <button class="operator">√</button>
-            <button class="operator">(</button>
-            <button class="operator">)</button>
-            <button class="operator">^</button>
-        </div>
-        <div class="sciButtons">
-            <button class="operator">sin</button>
-            <button class="operator">cos</button>
-            <button class="operator">tan</button>
-            <button class="operator">abs</button>
-        </div>
-        <div class="bottomButtons">
-            <div class="buttonRow">
-                <button class="number">7</button>
-                <button class="number">8</button>
-                <button class="number">9</button>
-                <button class="functional" id="delbutton">DEL</button>
-                <button class="functional" id="acbutton">AC</button>
-            </div>
-            <div class="buttonRow">
-                <button class="number">4</button>
-                <button class="number">5</button>
-                <button class="number">6</button>
-                <button class="operator">&#215;</button>
-                <button class="operator">&#247;</button>
-            </div>
-            <div class="buttonRow">
-                <button class="number">1</button>
-                <button class="number">2</button>
-                <button class="number">3</button>
-                <button class="operator">+</button>
-                <button class="operator">-</button>
-            </div>
-            <div class="buttonRow">
-                <button class="number">0</button>
-                <button class="number">.</button>
-                <button class="operator">&#8544</button>
-                <button class="operator" id="ansbutton">Ans</button>
-                <button class="operator">=</button>
-            </div>
+        <fieldset class="buttonRow sciButtons">
+            <button class="sciButton">√</button>
+            <button class="sciButton">(</button>
+            <button class="sciButton">)</button>
+            <button class="sciButton">^</button>
+            <button class="sciButton">π</button>
+
+        </fieldset>
+        <fieldset class="buttonRow sciButtons", >
+            <button class="sciButton">sin</button>
+            <button class="sciButton">cos</button>
+            <button class="sciButton">tan</button>
+            <button class="sciButton">abs</button>
+            <button class="sciButton">×10</button>
+        </fieldset>
+        <fieldset class="buttonRow">
+            <button class="numberButton">7</button>
+            <button class="numberButton">8</button>
+            <button class="numberButton">9</button>
+            <button class="functional" id="delbutton">DEL</button>
+            <button class="functional" id="acbutton">AC</button>
+        </fieldset>
+        <fieldset class="buttonRow">
+            <button class="numberButton">4</button>
+            <button class="numberButton">5</button>
+            <button class="numberButton">6</button>
+            <button class="numberButton">&#215;</button>
+            <button class="numberButton">&#247;</button>
+        </fieldset>
+        <fieldset class="buttonRow">
+            <button class="numberButton">1</button>
+            <button class="numberButton">2</button>
+            <button class="numberButton">3</button>
+            <button class="operator">+</button>
+            <button class="operator">-</button>
+        </fieldset>
+        <fieldset class="buttonRow">
+            <button class="numberButton">0</button>
+            <button class="numberButton">.</button>
+            <button class="operator">&#8544</button>
+            <button class="operator" id="ansbutton">Ans</button>
+            <button class="operator">=</button>
+        </fieldset>
 
 
-        </div>
-    </div>
+    </main>
     <script src="script.js"></script>
 </body>
 

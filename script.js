@@ -1,6 +1,5 @@
 let prevAns = 0
 
-
 function myEval(expression) {
 
     let terms = splitString(expression)
@@ -29,8 +28,8 @@ function splitString(equ) {
     while ((match = regex.exec(equ)) !== null) {
         let token = match[0];
 
-        // Handle unary minus
-        if (token === "-" && (lastToken === null || /[+\-*/^()×÷]/.test(lastToken))) {
+        // If a minus is standing on its own, ignore some of these symbols
+        if (token === "-" && (lastToken === null || /[+-*(^×÷]/.test(lastToken))) {
             match = regex.exec(equ); // Get the next token
             if (match) {
                 token = `-${match[0]}`;
@@ -212,6 +211,10 @@ buttons.forEach(button => {
             display.value += 'tan('
         } else if (button.textContent === 'abs') {
             display.value += 'abs('
+        } else if (button.textContent === 'π') {
+            display.value += '3.1415926'
+        } else if (button.textContent === '×10') {
+            display.value += '×10^('
         } else if (button.textContent === 'Ans') {
             display.value += '(' + prevAns + ')';
         } else if (button.textContent === 'Ⅰ') {
