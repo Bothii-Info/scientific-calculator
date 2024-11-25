@@ -217,7 +217,7 @@ buttons.forEach(button => {
             display.value += '×10^('
         } else if (button.textContent === 'Ans') {
             display.value += '(' + prevAns + ')';
-        } else if (button.textContent === 'Ⅰ') {
+        } else if (button.textContent === 'Ⅵ') {
             display.value = toRom(parseInt(display.value))
         } else {
             display.value += button.textContent;
