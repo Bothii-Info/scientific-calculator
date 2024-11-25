@@ -45,8 +45,9 @@ function splitString(equ) {
     return tokens;
 }
 
+// Give priority to some functions over others
 function bodmas(terms) {
-    const precedence = { '+': 1, '-': 1, '*': 2, '×': 2, '÷': 3, '/': 3, '^': 4, '√': 4, 'sin': 5, 'cos': 5, 'tan': 5, 'log': 5, 'logbase': 5, 'abs': 5 };
+    const precedence = { '+': 1, '-': 1, '*': 2, '×': 2, '÷': 3, '/': 3, '^': 4, '√': 4, 'sin': 5, 'cos': 5, 'tan': 5, 'abs': 5 };
     const stack = [];
     const values = [];
 
@@ -86,6 +87,7 @@ function evaluateExpression(expression) {
     let a = ''
     let b = ''
 
+    // Get 1 (or 2) number(s) in a and b, then perform operation on them
     expression.forEach(
         term => {
             console.log(term)
