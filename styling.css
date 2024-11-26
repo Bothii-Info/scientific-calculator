@@ -9,7 +9,7 @@ body {
 
 .calculator {
     width: 80%;
-    max-width: 800px;
+    max-width: 400px;
     margin: auto;
     height: 200%;
     min-height: 300px;
@@ -18,7 +18,7 @@ body {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     padding: 10px;
-    background-color: rgb(36, 36, 36);
+    background-color: rgb(107, 107, 107);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,15 +52,16 @@ body {
 }
 
 button {
-    font-size: 2vw;
+    font-size: 2.5vw;
+    box-shadow: 5px;
     padding: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
-    border: 1px solid black;
     border-radius: 5px;
     cursor: pointer;
     width: 19%;
     height: 10vh
-    /*So that 5 buttons fit with a bit of extra space*/
+        /*So that 5 buttons fit with a bit of extra space*/
 
 }
 
