@@ -189,12 +189,27 @@ function toRom(num) {
 const display = document.getElementById('display');
 const buttons = document.querySelectorAll('button');
 
+// Evaluate when enter has been pressed
+display.addEventListener("keydown", (event) => {
+    console.log("Event has occured with key " + event.key)
+    if (event.key === "Enter") { // Checks if enter has been pressed
+        try {
+            display.value = myEval(display.value);
+        } catch (error) {
+            display.value = 'Error';
+            console.log(error);
+        }
+    }
+});
+
+// Enforces that valid characters can be input
 display.addEventListener("input", () => {
     const lastChar = display.value.charAt(display.value.length - 1);
-    if (!("cosintab0987654321()^-".includes(lastChar))) {
-        // Prevent the invalid character from being added
-        display.value = display.value.slice(0, -1);
-    }
+        
+        if (!("cosintab0987654321()^-+".includes(lastChar))) {
+            // Prevent the invalid character from being added
+            display.value = display.value.slice(0, -1);
+        }
 });
 
 buttons.forEach(button => {
