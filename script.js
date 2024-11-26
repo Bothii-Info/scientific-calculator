@@ -189,6 +189,13 @@ function toRom(num) {
 const display = document.getElementById('display');
 const buttons = document.querySelectorAll('button');
 
+display.addEventListener("keyup", () => {
+    console.log("display has been activated with " + display.value);
+    if (!("cosintab0987654321()^-".includes(display.value.charAt(display.value.length-1)))) {
+        display.value = display.value.slice(0, -1);
+    }
+});
+
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         if (button.textContent === 'AC') {
