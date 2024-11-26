@@ -37,7 +37,9 @@ function splitString(equ) {
                 throw new Error("Invalid syntax: Standalone '-'");
             }
         }
-
+        if (lastToken && (/[)\dπ]/.test(lastToken) && /[\dπ(]/.test(token))) {
+            tokens.push("×");
+        }
         tokens.push(token);
         lastToken = token;
     }
