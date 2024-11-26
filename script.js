@@ -86,52 +86,52 @@ function bodmas(terms) {
 
 function evaluateExpression(expression) {
     let calculations = []
-    let a = ''
-    let b = ''
+    let n1 = ''
+    let n2 = ''
 
     // Get 1 (or 2) number(s) in a and b, then perform operation on them
     expression.forEach(
         term => {
             console.log(term)
             if (term == 'sin' || term == 'cos' || term == 'tan' || term == "√" || term == "log") {
-                a = calculations.pop()
+                n1 = calculations.pop()
                 b = term === null;
             } else if (isNaN(term)) {
                 b = calculations.pop()
-                a = calculations.pop()
+                n1 = calculations.pop()
             } else {
                 calculations.push(parseFloat(term))
             }
             switch (term) {
                 case '+':
-                    calculations.push(a + b)
+                    calculations.push(n1 + b)
                     break;
                 case '-':
-                    calculations.push(a - b)
+                    calculations.push(n1 - b)
                     break;
                 case '×':
-                    calculations.push(a * b)
+                    calculations.push(n1 * b)
                     break;
                 case '÷':
-                    calculations.push(a / b)
+                    calculations.push(n1 / b)
                     break;
                 case '^':
-                    calculations.push(Math.pow(a, b))
+                    calculations.push(Math.pow(n1, b))
                     break;
                 case "√":
-                    calculations.push(Math.sqrt(a))
+                    calculations.push(Math.sqrt(n1))
                     break;
                 case 'sin':
-                    calculations.push(Math.sin(a * (Math.PI / 180)))
+                    calculations.push(Math.sin(n1 * (Math.PI / 180)))
                     break;
                 case 'cos':
-                    calculations.push(Math.cos(a * (Math.PI / 180)))
+                    calculations.push(Math.cos(n1 * (Math.PI / 180)))
                     break;
                 case 'tan':
-                    calculations.push(Math.tan(a * (Math.PI / 180)))
+                    calculations.push(Math.tan(n1 * (Math.PI / 180)))
                     break;
                 case 'log':
-                    calculations.push(Math.log10(a))
+                    calculations.push(Math.log10(n1))
                     break;
             }
 
