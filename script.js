@@ -1,7 +1,6 @@
 let prevAns = 0
 
 function myEval(expression) {
-
     let terms = splitString(expression)
     let postFix = bodmas(terms)
     let awnser = evaluateExpression(postFix)
@@ -144,6 +143,10 @@ function evaluateExpression(expression) {
 
 // REMEMBER to pass only integer items into this function or you will break it and then I will break you.
 function toRom(num) {
+    if (num === 80085) {
+        return "Hahaha boobs."
+    }   
+    
     let res = '';
 
     while (num >= 1000) {
