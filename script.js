@@ -20,6 +20,7 @@ function isnum(n) {
 
 function splitString(equ) {
     const tokens = [];
+    // Match operators, or numbers
     const regex = /[+\-*/^()×÷√]|sin|cos|tan|log|abs|ans|\d+(\.\d+)?/g;
     let match;
     let lastToken = null;
@@ -94,7 +95,7 @@ function evaluateExpression(expression) {
             console.log(term)
             if (term == 'sin' || term == 'cos' || term == 'tan' || term == "√" || term == "log") {
                 a = calculations.pop()
-                b = term === 'logbase' ? calculations.pop() : null;
+                b = term === null;
             } else if (isNaN(term)) {
                 b = calculations.pop()
                 a = calculations.pop()
@@ -145,8 +146,8 @@ function evaluateExpression(expression) {
 function toRom(num) {
     if (num === 80085) {
         return "Hahaha boobs."
-    }   
-    
+    }
+
     let res = '';
 
     while (num >= 1000) {
@@ -208,11 +209,11 @@ display.addEventListener("keydown", (event) => {
 // Enforces that valid characters can be input
 display.addEventListener("input", () => {
     const lastChar = display.value.charAt(display.value.length - 1);
-        
-        if (!("cosintab0987654321()^-+".includes(lastChar))) {
-            // Prevent the invalid character from being added
-            display.value = display.value.slice(0, -1);
-        }
+
+    if (!("cosintablg0987654321()^-+".includes(lastChar))) {
+        // Prevent the invalid character from being added
+        display.value = display.value.slice(0, -1);
+    }
 });
 
 buttons.forEach(button => {
