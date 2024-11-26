@@ -36,7 +36,7 @@ function splitString(equ) {
                 throw new Error("Invalid syntax: Standalone '-'");
             }
         }
-        if (lastToken && (/[)\dπ]/.test(lastToken) && /[\dπ(]|cos|sin|tan|abs/.test(token))) {
+        if (lastToken && (/[)\dπ]/.test(lastToken) && /[\dπ(]|cos|sin|tan|log/.test(token))) {
             tokens.push("×");
         }
         tokens.push(token);
@@ -48,7 +48,7 @@ function splitString(equ) {
 
 // Give priority to some functions over others
 function bodmas(terms) {
-    const precedence = { '+': 1, '-': 1, '*': 2, '×': 2, '÷': 3, '/': 3, '^': 4, '√': 4, 'sin': 5, 'cos': 5, 'tan': 5, 'abs': 5 };
+    const precedence = { '+': 1, '-': 1, '*': 2, '×': 2, '÷': 3, '/': 3, '^': 4, '√': 4, 'sin': 5, 'cos': 5, 'tan': 5, 'log': 5 };
     const stack = [];
     const values = [];
 
@@ -92,7 +92,7 @@ function evaluateExpression(expression) {
     expression.forEach(
         term => {
             console.log(term)
-            if (term == 'sin' || term == 'cos' || term == 'tan' || term == "√" || term == "abs") {
+            if (term == 'sin' || term == 'cos' || term == 'tan' || term == "√" || term == "log") {
                 a = calculations.pop()
                 b = term === 'logbase' ? calculations.pop() : null;
             } else if (isNaN(term)) {
@@ -129,8 +129,8 @@ function evaluateExpression(expression) {
                 case 'tan':
                     calculations.push(Math.tan(a * (Math.PI / 180)))
                     break;
-                case 'abs':
-                    calculations.push(Math.abs(a))
+                case 'log':
+                    calculations.push(Math.log10(a))
                     break;
             }
 
@@ -239,8 +239,8 @@ buttons.forEach(button => {
             display.value += 'cos('
         } else if (button.textContent === 'tan') {
             display.value += 'tan('
-        } else if (button.textContent === 'abs') {
-            display.value += 'abs('
+        } else if (button.textContent === 'log') {
+            display.value += 'log('
         } else if (button.textContent === 'π') {
             display.value += '3.1415926'
         } else if (button.textContent === '×10') {
