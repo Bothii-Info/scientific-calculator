@@ -210,7 +210,7 @@ display.addEventListener("keydown", (event) => {
 display.addEventListener("input", () => {
     const lastChar = display.value.charAt(display.value.length - 1);
 
-    if (!("cosintablg0987654321()^-+".includes(lastChar))) {
+    if (!("cosintablg0987654321()^-+.".includes(lastChar))) {
         // Prevent the invalid character from being added
         display.value = display.value.slice(0, -1);
     }
