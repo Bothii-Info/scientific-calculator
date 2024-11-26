@@ -1,7 +1,18 @@
+body {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
 .calculator {
     width: 80%;
-    height: 90%;
+    max-width: 800px;
     margin: auto;
+    height: 200%;
+    min-height: 300px;
     border: 3px solid black;
     border-radius: 5px;
     border-bottom-left-radius: 20px;
@@ -17,6 +28,7 @@
 
 #display {
     width: 85%;
+    height: 10vh;
     margin: auto;
     padding: 2vw;
     font-size: 2vw;
@@ -39,28 +51,33 @@
     align-items: center;
 }
 
-button{
+button {
     font-size: 2vw;
     padding: 2%;
     text-align: center;
     border: 1px solid black;
     border-radius: 5px;
     cursor: pointer;
-    width: 19%; /*So that 5 buttons fit with a bit of extra space*/
-    
+    width: 19%;
+    height: 10vh
+    /*So that 5 buttons fit with a bit of extra space*/
+
 }
 
 .sciButton {
     background-color: darkgray;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
 }
 
-#ansbutton{
+#ansbutton {
     background-color: orange;
 }
-#delbutton{
+
+#delbutton {
     background-color: rgb(208, 80, 6);
 }
-#acbutton{
+
+#acbutton {
     background-color: yellow;
 }
-
